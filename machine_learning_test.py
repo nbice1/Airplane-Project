@@ -49,13 +49,13 @@ scoring = 'accuracy'
 
 #compare various models
 models = []
-#models.append(('LR', LogisticRegression()))
-#models.append(('LDA', LinearDiscriminantAnalysis()))
-#models.append(('KNN', KNeighborsClassifier()))
+models.append(('LR', LogisticRegression()))
+models.append(('LDA', LinearDiscriminantAnalysis()))
+models.append(('KNN', KNeighborsClassifier()))
 models.append(('CART', DecisionTreeClassifier()))
-#models.append(('NB', GaussianNB()))
-#models.append(('SVM', SVC()))
-#models.append(('DTR', DecisionTreeRegressor()))
+models.append(('NB', GaussianNB()))
+models.append(('SVM', SVC()))
+models.append(('DTR', DecisionTreeRegressor()))
 results = []
 names = []
 for name, model in models:
