@@ -11,7 +11,7 @@ The dataset downloaded is updated every 60 seconds and contains data on an avera
 
 3. Run ```python database_setup.py``` to establish table schema in postgres database. 
 
-4. Run ```python plane_data.py``` to update database with new rows. 
+4. Run ```python plane_data.py``` to update the table with new rows. Ideally, run this multiple times in order to construct a large dataset, although for greater variation wait several hours each time (since the same plane will often be in the air for several hours). 
 
 5. Optional: Run ```python machine_learning_test.py``` to compare the accuracy of various models using 10-fold cross validation and then check the accuracy of a Decision Tree Classifier against a validation dataset (20% of total dataset). The program will print the accuracy score of the various models, followed by the accuracy score, confusion matrix, and classification report of the Decision Tree Classifier trained on the training dataset and tested against the validation dataset. A Decision Tree Classifier model was chosen since it had the highest accuracy score after various tests. 
 
