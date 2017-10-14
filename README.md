@@ -1,7 +1,7 @@
 # Airplane-Project
 This program uses machine learning to predict the level of turbulence experienced by a plane based on data about that plane (altitude, speed, number of engines, etc.). It begins by gathering data about various planes and storing it in a PostgreSQL table named plane_table. The program is written to store the table in a database named planes, which must first be created by the user in PostgreSQL. After downloading data on various planes currently flying, the program compares various machine learning models, followed by using a Decision Tree Classifier to make predictions on a validation dataset. The program then downloads new data and attempts to predict turbulence level after being trained on the original dataset. 
 
-The dataset downloaded is updated every 60 seconds and contains data on an average of 5000 planes currently flying. Turbulence is split into 4 possible values: 0 - no turbulence, 1 - low turbulence, 2 - moderate turbulence, 3 - high turbulence. 
+The dataset downloaded is updated every 60 seconds and contains data on an average of 5000 planes currently flying. More information on the dataset can be found here: https://www.adsbexchange.com/data/. In particular, turbulence is split into 4 possible values: 0 - no turbulence, 1 - light turbulence, 2 - medium turbulence, 3 - heavy turbulence. A list of the available types of data for predicting turbulence can be found here: https://www.adsbexchange.com/datafields/. Check the database_setup code to see which types of data were used in this project (abbreviations are explained at the same website). 
 
 ## Set up local environment 
 
