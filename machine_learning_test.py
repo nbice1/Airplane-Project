@@ -3,8 +3,6 @@ import pandas
 import numpy
 from numpy import nan
 from sklearn.preprocessing import Imputer
-from pandas.tools.plotting import scatter_matrix
-import matplotlib.pyplot as plt
 from sklearn import model_selection
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
@@ -28,7 +26,7 @@ for chunk in pandas.read_sql('select * from plane_table', con=conn, chunksize=50
 #replacing Null values by NaN
 df.fillna(value=nan, inplace=True)
 
-#split dataset to train models
+#constructing array of values
 array = df.values
 
 #only considering columns with numerical values for now
@@ -38,9 +36,11 @@ X = numpy.column_stack((array[:,0:8],array[:,9:12],array[:,16:22],array[:,26],ar
 imputer = Imputer()
 transformed_X = imputer.fit_transform(X)
 
+#will attempt to predict turbulence level
 Y = array[:,30]
 Y = Y.astype('int')
 
+#split dataset to train models
 validation_size = 0.20
 seed = None
 X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(transformed_X, Y, test_size=validation_size, random_state=seed)
