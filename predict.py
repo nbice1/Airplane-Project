@@ -128,25 +128,17 @@ def update():
 #pull and store updated data
 update()            
 
-
+#machine learning imports
 import psycopg2
 import pandas
 import numpy
 from numpy import nan
 from sklearn.preprocessing import Imputer
-from pandas.tools.plotting import scatter_matrix
-import matplotlib.pyplot as plt
 from sklearn import model_selection
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
-from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeRegressor
 
 #connecting to database
 conn = psycopg2.connect(dbname="planes")
@@ -159,7 +151,7 @@ for chunk in pandas.read_sql('select * from plane_table', con=conn, chunksize=50
 #replacing Null values by NaN
 df.fillna(value=nan, inplace=True)
 
-#split dataset into X and Y
+#construct array of values
 array = df.values
 
 #only considering columns with numerical values for now
@@ -169,6 +161,7 @@ X = numpy.column_stack((array[:,0:8],array[:,9:12],array[:,16:22],array[:,26],ar
 imputer = Imputer()
 transformed_X = imputer.fit_transform(X)
 
+#predicting turbulence level
 Y = array[:,30]
 Y = Y.astype('int')
 
@@ -190,7 +183,7 @@ for chunk in pandas.read_sql('select * from predictions', con=conn, chunksize=50
 #replacing Null values by NaN
 df.fillna(value=nan, inplace=True)
 
-#split dataset to train models
+#constructing array of values
 array = df.values
 
 #only considering columns with numerical values for now
@@ -203,6 +196,7 @@ transformed_X = imputer.fit_transform(X)
 Y = array[:,30]
 Y = Y.astype('int')
 
+#making predictions and evaluating accuracy
 predictions = cr.predict(transformed_X)
 print(accuracy_score(Y, predictions))
 print(confusion_matrix(Y, predictions))
