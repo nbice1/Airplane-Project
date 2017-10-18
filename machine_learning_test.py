@@ -14,6 +14,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestClassifier
 
 #connecting to database
 conn = psycopg2.connect(dbname="planes")
@@ -64,6 +65,7 @@ models.append(('CART', DecisionTreeClassifier()))
 models.append(('NB', GaussianNB()))
 models.append(('SVM', SVC()))
 models.append(('DTR', DecisionTreeRegressor()))
+models.append(('RFC', RandomForestClassifier()))
 results = []
 names = []
 for name, model in models:
@@ -76,7 +78,7 @@ for name, model in models:
 
 
 # Make predictions on validation dataset
-cr = DecisionTreeClassifier()
+cr = RandomForestClassifier()
 cr.fit(X_train, Y_train)
 predictions = cr.predict(X_validation)
 print(accuracy_score(Y_validation, predictions))
