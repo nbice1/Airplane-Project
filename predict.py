@@ -154,8 +154,8 @@ df.fillna(value=nan, inplace=True)
 #construct array of values
 array = df.values
 
-#only considering columns with numerical values for now
-X = numpy.column_stack((array[:,0:8],array[:,9:12],array[:,16:22],array[:,26],array[:,28:30]))
+#only considering columns with numerical or boolean values for now
+X = numpy.column_stack((array[:,0:13],array[:,16:22], array[:,23], array[:,25:30]))
 
 #replacing NaN values by mean values
 imputer = Imputer()
@@ -186,8 +186,8 @@ df.fillna(value=nan, inplace=True)
 #constructing array of values
 array = df.values
 
-#only considering columns with numerical values for now
-X = numpy.column_stack((array[:,0:8],array[:,9:12],array[:,16:22],array[:,26],array[:,28:30]))
+#only considering columns with numerical or boolean values for now
+X = numpy.column_stack((array[:,0:13],array[:,16:22], array[:,23], array[:,25:30]))
 
 #replacing NaN values by mean values
 imputer = Imputer()
