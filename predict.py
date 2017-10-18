@@ -138,7 +138,7 @@ from sklearn import model_selection
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 #connecting to database
 conn = psycopg2.connect(dbname="planes")
@@ -174,7 +174,7 @@ Y = array[:,30]
 Y = Y.astype('int')
 
 # train on original dataset
-cr = DecisionTreeClassifier()
+cr = RandomForestClassifier()
 cr.fit(transformed_X, Y)
 
 
