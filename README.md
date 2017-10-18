@@ -17,6 +17,6 @@ The project has been successful: I have had a consistent predictive accuracy of 
 
 5. Optional: Run ```python machine_learning_test.py``` to compare the accuracy of various models using 10-fold cross validation and then check the accuracy of a Random Forest Classifier against a validation dataset (20% of total dataset). The program will print the accuracy score of the various models, followed by the accuracy score, confusion matrix, and classification report of the Random Forest Classifier trained on the training dataset and tested against the validation dataset. A Random Forest Classifier model was chosen since it had the highest accuracy score after various tests. 
 
-6. Run ```python predict.py``` to create a new table called 'predictions' to store new plane data and use a Decision Tree Classifier to attempt to predict the turbulence level of the new dataset after being trained on the original dataset (stored in plane_table). The program will print the model's accuracy score, confusion matrix, and classification report. 
+6. Run ```python predict.py``` to create a new table called 'predictions' to store new plane data and use a Random Forest Classifier to attempt to predict the turbulence level of the new dataset after being trained on the original dataset (stored in plane_table). The program will print the model's accuracy score, confusion matrix, and classification report. 
 
 7. For repeated trials, first log back into postgres and drop the table 'predictions'. Then, run ```python predict.py``` again in order to repeat the trial. 
