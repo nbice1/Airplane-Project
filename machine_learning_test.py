@@ -29,14 +29,6 @@ df.fillna(value=nan, inplace=True)
 #constructing array of values
 array = df.values
 
-#replace booleans by 0,1
-for n in range(31):
-    for m in range(len(array[:,n])):
-        if array[m,n] == True:
-            array[m,n] = 1
-        elif array[m,n] == False:
-            array[m,n] = 0
-
 #only considering columns with numerical or boolean values for now
 X = numpy.column_stack((array[:,0:13],array[:,16:22], array[:,23], array[:,25:30]))
 
