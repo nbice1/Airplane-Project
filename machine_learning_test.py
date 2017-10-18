@@ -29,8 +29,16 @@ df.fillna(value=nan, inplace=True)
 #constructing array of values
 array = df.values
 
-#only considering columns with numerical or boolean values for now
-X = numpy.column_stack((array[:,0:13],array[:,16:22], array[:,23], array[:,25:30]))
+#encoding strings as numbers
+for n in [13,14,15,22,24]:
+    for m in range(len(array[:,n])):
+        code = 0
+        if type(array[m,n]) == str:
+            for char in array[m,n]:
+                code += ord(char)
+            array[m,n] = code
+
+X = array[:,:30]
 
 #replacing NaN values by mean values
 imputer = Imputer()
