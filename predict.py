@@ -174,7 +174,7 @@ Y = array[:,30]
 Y = Y.astype('int')
 
 # train on original dataset
-cr = RandomForestClassifier()
+cr = RandomForestClassifier(n_estimators=100)
 cr.fit(transformed_X, Y)
 
 
