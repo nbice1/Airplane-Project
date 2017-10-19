@@ -3,7 +3,7 @@ This program uses machine learning to predict the level of turbulence experience
 
 The dataset downloaded is updated every 60 seconds and contains data on an average of 5000 planes currently flying. More information on the dataset can be found here: https://www.adsbexchange.com/data/. In particular, turbulence is split into 4 possible values: 0 - no turbulence, 1 - light turbulence, 2 - medium turbulence, 3 - heavy turbulence. A list of the available types of data for predicting turbulence can be found here: https://www.adsbexchange.com/datafields/. Check the database_setup code to see which types of data were used in this project (abbreviations are explained at the same website). 
 
-The project has been successful: I have had a consistent predictive accuracy of around 97%. 
+The project has been successful: I have had a consistent predictive accuracy of around 99%. 
 
 ## Set up local environment 
 
