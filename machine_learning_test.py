@@ -65,7 +65,7 @@ models.append(('CART', DecisionTreeClassifier()))
 models.append(('NB', GaussianNB()))
 models.append(('SVM', SVC()))
 models.append(('DTR', DecisionTreeRegressor()))
-models.append(('RFC', RandomForestClassifier()))
+models.append(('RFC', RandomForestClassifier(n_estimators=100)))
 results = []
 names = []
 for name, model in models:
@@ -78,7 +78,7 @@ for name, model in models:
 
 
 # Make predictions on validation dataset
-cr = RandomForestClassifier()
+cr = RandomForestClassifier(n_estimators=100)
 cr.fit(X_train, Y_train)
 predictions = cr.predict(X_validation)
 print(accuracy_score(Y_validation, predictions))
